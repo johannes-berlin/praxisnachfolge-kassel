@@ -179,34 +179,47 @@ const faq = [
           <h2 class="mt-[16px] mb-[14px] max-w-[16ch] text-cta-h2 font-normal leading-[1.02] tracking-[-0.02em]">Lassen Sie uns sprechen.</h2>
           <p class="mb-[36px] max-w-[48ch] text-[rgba(255,255,255,0.82)]">Erzählen Sie kurz von sich — wir melden uns zeitnah und vertraulich zurück. Detailunterlagen folgen nach gegenseitigem Einverständnis.</p>
 
-          <!-- Prototyp: sendet noch nichts. Anbindung: Netlify Function → Notion-Lead-DB → Resend. -->
-          <form id="leadForm" novalidate>
+          <form
+            id="leadForm"
+            name="lead"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="lead" />
+            <p class="hidden" aria-hidden="true">
+              <label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
             <div class="grid grid-cols-2 gap-[18px] max-[860px]:grid-cols-1">
               <div class="flex flex-col gap-[8px]">
                 <label for="name" class="text-[13px] text-[rgba(255,255,255,0.8)]">Name</label>
-                <input id="name" type="text" required class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
+                <input id="name" name="name" type="text" required class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
               </div>
               <div class="flex flex-col gap-[8px]">
                 <label for="email" class="text-[13px] text-[rgba(255,255,255,0.8)]">E-Mail</label>
-                <input id="email" type="email" required class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
+                <input id="email" name="email" type="email" required class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
               </div>
               <div class="flex flex-col gap-[8px]">
                 <label for="tel" class="text-[13px] text-[rgba(255,255,255,0.8)]">Telefon <span class="text-[rgba(255,255,255,0.5)]">(optional)</span></label>
-                <input id="tel" type="tel" class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
+                <input id="tel" name="tel" type="tel" class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
               </div>
               <div class="flex flex-col gap-[8px]">
                 <label for="role" class="text-[13px] text-[rgba(255,255,255,0.8)]">Aktuelle Tätigkeit <span class="text-[rgba(255,255,255,0.5)]">(optional)</span></label>
-                <input id="role" type="text" placeholder="z. B. angestellte:r Physiotherapeut:in" class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
+                <input id="role" name="role" type="text" placeholder="z. B. angestellte:r Physiotherapeut:in" class="w-full rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand" />
               </div>
               <div class="col-span-full flex flex-col gap-[8px]">
                 <label for="msg" class="text-[13px] text-[rgba(255,255,255,0.8)]">Ihr fachlicher Hintergrund &amp; Motivation</label>
-                <textarea id="msg" placeholder="Kurz: Qualifikation, Erfahrung und warum Sie diese Praxis übernehmen möchten." class="min-h-[108px] w-full resize-y rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand"></textarea>
+                <textarea id="msg" name="msg" placeholder="Kurz: Qualifikation, Erfahrung und warum Sie diese Praxis übernehmen möchten." class="min-h-[108px] w-full resize-y rounded-[10px] border border-[rgba(255,255,255,0.28)] bg-[rgba(255,255,255,0.1)] px-[15px] py-[14px] font-[inherit] text-[15.5px] text-white placeholder:text-[rgba(255,255,255,0.55)] focus:border-transparent focus:outline-2 focus:outline-offset-1 focus:outline-sand"></textarea>
               </div>
             </div>
             <div class="mt-[6px] flex items-start gap-[11px]">
-              <input id="consent" type="checkbox" required class="mt-[4px] w-auto accent-sand" />
+              <input id="consent" name="consent" type="checkbox" value="ja" required class="mt-[4px] w-auto accent-sand" />
               <label for="consent" class="text-[13px] leading-[1.5] text-[rgba(255,255,255,0.8)]">Ich bin mit einer vertraulichen Kontaktaufnahme einverstanden. Meine Angaben werden ausschließlich zur Bearbeitung dieser Anfrage genutzt.</label>
             </div>
+            <p id="formError" class="mt-[16px] hidden text-[14px] text-[#f4c4c4]" role="alert">
+              Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.
+            </p>
             <div class="mt-[26px] flex flex-wrap items-center gap-x-[24px] gap-y-[16px]">
               <button type="submit" class={btnSand}>Anfrage senden</button>
               <span class="max-w-[40ch] text-[12.5px] text-[rgba(255,255,255,0.62)]">Diskret. Keine Weitergabe an Dritte.</span>
@@ -257,18 +270,39 @@ const faq = [
         });
       });
 
-      // Formular-Prototyp
+      // Netlify Forms (AJAX, inline Danke-Meldung)
       const form = document.getElementById("leadForm") as HTMLFormElement | null;
-      form?.addEventListener("submit", (ev) => {
+      const formError = document.getElementById("formError");
+      form?.addEventListener("submit", async (ev) => {
         ev.preventDefault();
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
-        form.style.display = "none";
-        const sent = document.getElementById("sent");
-        sent?.classList.remove("hidden");
-        sent?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+        formError?.classList.add("hidden");
+        submitBtn?.setAttribute("disabled", "true");
+        if (submitBtn) submitBtn.textContent = "Wird gesendet …";
+
+        try {
+          const res = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+          });
+
+          if (!res.ok) throw new Error("Netlify form submit failed");
+
+          form.style.display = "none";
+          const sent = document.getElementById("sent");
+          sent?.classList.remove("hidden");
+          sent?.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch {
+          formError?.classList.remove("hidden");
+          submitBtn?.removeAttribute("disabled");
+          if (submitBtn) submitBtn.textContent = "Anfrage senden";
+        }
       });
     </script>
   </body>
