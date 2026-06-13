@@ -15,21 +15,22 @@ const linkPlus =
 
 // Kennblatt-Daten
 const kennblatt = [
-  { k: "Standort", v: `Großraum Kassel / Nordhessen <span class="text-gold">(PLZ 34xxx)</span>` },
-  { k: "Bestehend seit", v: `<span class="text-gold">[Jahr]</span> — über [X] Jahre am Markt` },
-  { k: "Räume & Fläche", v: `ca. <span class="text-gold">[XX]</span> m², <span class="text-gold">[X]</span> Behandlungsräume<span class="text-gold"> [+ KGG-Bereich]</span>` },
-  { k: "Zulassung", v: `Alle gesetzlichen Kassen<span class="text-gold"> [· Privatanteil ca. X %]</span>` },
-  { k: "Leistungen", v: `KG, Manuelle Therapie<span class="text-gold"> [, MLD, KGG, Hausbesuche]</span>` },
-  { k: "Team", v: `<span class="text-gold">[X]</span> Therapeut:innen + <span class="text-gold">[X]</span> Rezeption` },
-  { k: "Auslastung", v: `Sehr gut<span class="text-gold"> [· mit Wartelisten]</span>` },
-  { k: "Übergabe", v: `Zum <span class="text-gold">[Datum]</span> bzw. nach Absprache` },
-  { k: "Einarbeitung", v: `<span class="text-gold">[X Wochen/Monate]</span> persönliche Begleitung möglich` },
+  { k: "Standort", v: "Großraum Kassel (PLZ 341xx) · ÖPNV + Parkplätze vor dem Haus" },
+  { k: "Bestehen seit", v: "1993, über 30 Jahre (heutige Führung seit 14 Jahren)" },
+  { k: "Rechtsform", v: "Einzelpraxis" },
+  { k: "Räume & Fläche", v: "ca. 117 m², 3 Behandlungsräume + separater Trainingsbereich" },
+  { k: "Zulassung", v: "Alle gesetzlichen Kassen · Selbstzahleranteil ca. 15 %" },
+  { k: "Leistungen", v: "KG, Manuelle Therapie, MLD, CMD, Triggerpunkttherapie, FDM" },
+  { k: "Ausstattung", v: "3 elektr. Behandlungsliegen, Zugapparat, Ergometer, Ellipsentrainer, Vibrationsplatte" },
+  { k: "Team", v: "eingespielt · Übernahme von Mitarbeitenden nach Absprache" },
+  { k: "Übergabe", v: "Anfang 2027 bzw. nach Absprache" },
+  { k: "Einarbeitung", v: "persönliche Übergabe gewünscht" },
 ];
 
 const highlights = [
-  { t: "Eingespieltes Team", p: "[Loyales, qualifiziertes Team, das nach Möglichkeit erhalten bleibt — kein Neuaufbau nötig.]" },
-  { t: "Treuer Patientenstamm", p: "[Langjährige Patient:innen und eine stabile Zuweiserstruktur aus Orthopädie und Hausarztpraxen.]" },
-  { t: "Sofort betriebsbereit", p: "[Moderne, gepflegte Ausstattung und eingespielte Abläufe — vom ersten Tag an arbeitsfähig.]" },
+  { t: "Klares ganzheitliches Profil", p: "Etablierter Ruf für ganzheitliche Physiotherapie mit konservativer Schmerztherapie — ein Profil, das Patient:innen langfristig bindet." },
+  { t: "Seit über 30 Jahren etabliert", p: "Gewachsener, treuer Patientenstamm seit 1993 — kein Aufbau bei null." },
+  { t: "Sofort betriebsbereit", p: "117 m², 3 Behandlungsräume, separater Trainingsbereich und vollständige Geräteausstattung — vom ersten Tag arbeitsfähig." },
 ];
 
 const steps = [
@@ -39,9 +40,9 @@ const steps = [
 ];
 
 const faq = [
-  { q: "Bleibt die Anonymität gewahrt?", a: "Ja. Auf dieser Seite und im Inserat erscheinen keine identifizierenden Angaben. Name, Adresse und konkrete Zahlen teilen wir erst im persönlichen Kontakt und nach gegenseitigem Einverständnis." },
-  { q: "Was ist mit der Kassenzulassung?", a: "Die Praxis verfügt über die Zulassung aller gesetzlichen Kassen. Die Details zur Übertragung im Rahmen der Nachfolge besprechen wir individuell." },
-  { q: "Ist eine Einarbeitung möglich?", a: "Ja, eine persönliche Übergabe mit Einarbeitungszeit ist ausdrücklich gewünscht — für einen reibungslosen Übergang bei Patient:innen und Team." },
+  { q: "Bleibt die Anonymität gewahrt?", a: "Auf dieser Seite und im Inserat erscheinen keine identifizierenden Angaben. Name, Adresse und konkrete Zahlen teilen wir erst im persönlichen Kontakt und nach gegenseitigem Einverständnis." },
+  { q: "Was ist mit der Kassenzulassung?", a: "Die Praxis verfügt über die Zulassung aller gesetzlichen Kassen, der Selbstzahleranteil liegt bei rund 15 %. Details zur Übertragung im Rahmen der Nachfolge besprechen wir individuell." },
+  { q: "Wann und wie läuft die Übergabe?", a: "Geplant ist Anfang 2027 bzw. nach Absprache. Eine persönliche Übergabe mit Einarbeitung ist ausdrücklich gewünscht — für einen reibungslosen Übergang bei Patient:innen und Team." },
 ];
 ---
 
@@ -52,7 +53,7 @@ const faq = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Diskretion: nicht indexieren, solange anonym -->
     <meta name="robots" content="noindex, nofollow" />
-    <title>Praxisnachfolge · Großraum Kassel</title>
+    <title>Praxisnachfolge · Kassel</title>
   </head>
   <body>
     <!-- ============ HERO (warm) ============ -->
@@ -62,7 +63,7 @@ const faq = [
         <div class="flex items-center justify-between gap-4 border-b border-line py-[26px]">
           <span class="flex items-center gap-3 text-[13px] font-medium uppercase leading-[1.15] tracking-[0.02em]">
             <img src="/herkules.png" alt="" aria-hidden="true" width="36" height="36" class="h-9 w-9 flex-none object-contain" />
-            Praxisnachfolge<br /><span class="text-gold">Großraum Kassel</span>
+            Praxisnachfolge <span class="text-gold">· Kassel</span>
           </span>
           <div class="flex items-center gap-6 max-[860px]:gap-[14px]">
             <span class="inline-flex items-center gap-[7px] text-[13px] font-medium uppercase tracking-[0.04em] text-olive before:text-[15px] before:leading-none before:text-gold before:content-['+']">Vertraulich</span>
@@ -81,7 +82,7 @@ const faq = [
           </div>
           <div class="relative z-[3] mt-[-1.5rem] pt-[34px] pb-[78px]">
             <p class="mx-auto mb-[30px] max-w-[50ch] leading-[1.5] text-body">
-              Seit über [X] Jahren etabliert, gut ausgelastet und kassenzugelassen — mit treuem Patientenstamm und eingespieltem Team. Diskrete Übergabe in gute Hände, mit Zeit für eine saubere Einarbeitung.
+              Seit über 30 Jahren in Kassel etabliert, kassenzugelassen, mit ganzheitlichem Behandlungsansatz und treuem Patientenstamm. Übergabe zum Anfang 2027 — in gute Hände und mit persönlicher Einarbeitung.
             </p>
             <div class="flex flex-wrap items-center justify-center gap-x-[18px] gap-y-[14px]">
               <a href="#anfrage" class={btnDark}>Vertraulich anfragen</a>
@@ -96,10 +97,10 @@ const faq = [
       <!-- STATEMENT — warm: gap 50px -->
       <section class={`reveal ${section} grid grid-cols-[1.25fr_0.9fr] items-start gap-[50px] max-[860px]:grid-cols-1 max-[860px]:gap-[28px]`}>
         <h2 class="max-w-[16ch] text-h2 font-normal leading-[1.04] tracking-[-0.022em]">
-          Über Jahre gewachsen — bereit für die nächsten <span class="text-olive">Hände.</span>
+          Über drei Jahrzehnte gewachsen — bereit für die nächsten <span class="text-olive">Hände.</span>
         </h2>
         <div class="pt-[8px] [&>p+p]:mt-[16px]">
-          <p class="text-body">Diese Praxis trägt sich durch Vertrauen, Kontinuität und ein Team, das bleiben möchte. Genau das soll erhalten bleiben.</p>
+          <p class="text-body">Diese Praxis ist seit 1993 gewachsen — getragen von einem ganzheitlichen, menschlichen Behandlungsverständnis und einem treuen Patientenstamm. Genau das soll erhalten bleiben.</p>
           <p class="text-body">Wir suchen keine schnelle Abwicklung, sondern eine Nachfolge, die Patient:innen und Team gerecht wird — diskret, in jedem Schritt.</p>
         </div>
       </section>
@@ -117,7 +118,7 @@ const faq = [
               <div class="text-[1.34rem] leading-[1.28] tracking-[-0.01em]" set:html={row.v} />
             </div>
           ))}
-          <p class="mt-[24px] max-w-[62ch] text-[14px] text-muted">Konkrete Umsatz- und Finanzkennzahlen erhalten Sie nach erster Kontaktaufnahme und gegenseitigem Einverständnis (Vertraulichkeitsvereinbarung).</p>
+          <p class="mt-[24px] max-w-[62ch] text-[14px] text-muted">Konkrete Umsatz- und Finanzkennzahlen erhalten Sie nach erster Kontaktaufnahme und gegenseitigem Einverständnis.</p>
         </div>
       </section>
 
@@ -222,8 +223,8 @@ const faq = [
 
     <footer class={`${wrap} border-t border-line pt-[40px] pb-[64px] text-[13.5px] text-faint`}>
       <div class="flex flex-wrap justify-between gap-[24px] [&>p+p]:mt-[8px]">
-        <p>Diese Seite enthält bewusst keine identifizierenden Angaben.<br />Standort, Name und Zahlen folgen im persönlichen Kontakt.</p>
-        <p>© <span id="yr"></span> · Vertrauliche Praxisnachfolge · Großraum Kassel</p>
+        <p>Diese Seite enthält bewusst keine identifizierenden Angaben. Standort, Name und Zahlen folgen im persönlichen Kontakt.</p>
+        <p>© <span id="yr"></span> · Vertrauliche Praxisnachfolge · Kassel</p>
       </div>
     </footer>
 
