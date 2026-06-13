@@ -183,14 +183,15 @@ const faq = [
             id="leadForm"
             name="lead"
             method="POST"
+            netlify
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             novalidate
           >
             <input type="hidden" name="form-name" value="lead" />
-            <p class="hidden" aria-hidden="true">
+            <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
               <label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-            </p>
+            </div>
             <div class="grid grid-cols-2 gap-[18px] max-[860px]:grid-cols-1">
               <div class="flex flex-col gap-[8px]">
                 <label for="name" class="text-[13px] text-[rgba(255,255,255,0.8)]">Name</label>
@@ -285,14 +286,22 @@ const faq = [
         submitBtn?.setAttribute("disabled", "true");
         if (submitBtn) submitBtn.textContent = "Wird gesendet …";
 
+        const params = new URLSearchParams();
+        for (const [key, value] of new FormData(form).entries()) {
+          params.append(key, value.toString());
+        }
+
         try {
           const res = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+            body: params.toString(),
           });
+          const body = await res.text();
 
-          if (!res.ok) throw new Error("Netlify form submit failed");
+          if (!res.ok || !body.includes("Thank you")) {
+            throw new Error("Netlify form submit failed");
+          }
 
           form.style.display = "none";
           const sent = document.getElementById("sent");
