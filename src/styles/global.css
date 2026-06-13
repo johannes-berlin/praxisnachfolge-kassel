@@ -24,10 +24,10 @@
   --font-display: "PP Neue Montreal", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
 
-  /* Fluid-Typo (clamp) als Tokens, damit sie als text-* nutzbar sind */
-  --text-h1: clamp(2.9rem, 8.4vw, 6.6rem);
-  --text-h2: clamp(2rem, 4.6vw, 3.4rem);
-  --text-cta-h2: clamp(2rem, 4.4vw, 3.2rem);
+  /* Typo-Tokens */
+  --text-h1: 7rem;
+  --text-h2: 4.5rem;
+  --text-cta-h2: 4.5rem;
 }
 
 /* ----- Base ----- */
@@ -44,7 +44,7 @@
     background: var(--color-sand);
     color: var(--color-ink);
     font-family: var(--font-display);
-    font-size: 17px;
+    font-size: 1.1rem;
     line-height: 1.55;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
